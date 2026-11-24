@@ -53,6 +53,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 .star{text-shadow:0 0 1px rgba(180,85,45,.4)}
 .block{background:var(--card);border-radius:14px;padding:14px 16px;margin-top:12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .block h3{font-size:15px;margin-bottom:10px;color:var(--acc)}
+details.block summary{font-size:15px;font-weight:700;color:var(--acc);cursor:pointer;list-style:none;position:relative;padding-right:20px}
+details.block summary::-webkit-details-marker{display:none}
+details.block summary::after{content:"▸";position:absolute;right:0;top:-1px;transition:transform .2s;color:var(--acc)}
+details.block[open] summary::after{transform:rotate(90deg)}
+details.block[open] summary{margin-bottom:10px}
 .flight{font-size:13.5px;background:#F7F1EA;border-radius:9px;padding:8px 11px;margin-bottom:7px}
 .ck{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;padding:6px 0;border-bottom:1px dashed var(--line);cursor:pointer;color:#3C3A36}
 .ck:last-child{border-bottom:0}
@@ -101,14 +106,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 
   <div class="block"><h3>🗺️ 行程概览（1/28–2/12 · 共 15 晚）</h3>
    <table class="acc"><tr><th>日期</th><th>城市</th><th>住宿</th><th>晚数</th></tr>
-   <tr><td>1/28–1/30</td><td>威尼斯（梅斯特）</td><td>Anda Venice Hostel</td><td>2 晚</td></tr>
-   <tr><td>1/30–2/1</td><td>佛罗伦萨</td><td>Hostel Archi Rossi</td><td>2 晚</td></tr>
+   <tr><td>1/28–1/29</td><td>威尼斯（梅斯特）</td><td>Anda Venice Hostel</td><td>1 晚（1/29 晚 19:3x 火车离威尼斯）</td></tr>
+   <tr><td>1/29–2/1</td><td>佛罗伦萨</td><td>Hostel Archi Rossi</td><td>3 晚（1/29 晚 22:4x 到）</td></tr>
    <tr><td>2/1–2/5</td><td>罗马</td><td>59 Steps Trevi</td><td>4 晚</td></tr>
    <tr><td>2/5–2/6</td><td>那不勒斯</td><td>Napoliruban Suite</td><td>1 晚</td></tr>
    <tr><td>2/6–2/9</td><td>索伦托</td><td>Sunset Home</td><td>3 晚</td></tr>
    <tr><td>2/9–2/12</td><td>米兰</td><td>CX Milan Bicocca</td><td>3 晚（luoxin 2/11 离境 = 2 晚）</td></tr></table></div>
 
-  <div class="block"><h3>🧾 出行 checklist</h3>
+  <details class="block"><summary>🧾 出行 checklist</summary>
    <div class="ck-sec">⏰ 抢票 / 预约节点</div>
    <label class="ck"><input type="checkbox" id="ck1">12 月上中旬：《最后的晚餐》开售 → vivaticket 先注册账号（护照号），出公告即抢 2/10 场次</label>
    <label class="ck"><input type="checkbox" id="ck2">12/6 前后：圣塞维罗「裹尸基督」开售即订 2/5 11:20 场次（€12/人）</label>
@@ -144,9 +149,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
    <label class="ck"><input type="checkbox" id="ck22">Google Maps（离线地图）+ Google 翻译（意语离线包）</label>
    <label class="ck"><input type="checkbox" id="ck23">Trenit! 或 Trenitalia App（意大利火车实时晚点查询）</label>
    <label class="ck"><input type="checkbox" id="ck24">TheFork（订位打折）/ ferryhopper（船班）/ 航司 App（EK 值机）</label>
-  </div>
+  </details>
 
-  <div class="block"><h3>🏨 住宿</h3>
+  <details class="block"><summary>🏨 住宿</summary>
    <table class="acc"><tr><th>城市</th><th>酒店</th><th>日期</th><th>状态/单号</th></tr>
    <tr><td>威尼斯</td><td>Anda Venice Hostel</td><td>1/28–29</td><td>✅ 去哪儿 454581170710  <button class="v-btn" data-v="v-anda">🎫 凭证</button></td></tr>
    <tr><td>佛罗伦萨</td><td>Hotel Archi Rossi</td><td>1/29–2/1</td><td>✅ Agoda 1774627951  <button class="v-btn" data-v="v-archi">🎫 凭证</button></td></tr>
@@ -154,9 +159,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
    <tr><td>那不勒斯</td><td>Napolirubansuite（车站旁）</td><td>2/5–6</td><td>✅ 去哪儿 454582108499  <button class="v-btn" data-v="v-napoli">🎫 凭证</button></td></tr>
    <tr><td>索伦托</td><td>Sunset Home</td><td>2/6–9</td><td>✅ 去哪儿 454582638881  <button class="v-btn" data-v="v-sunset">🎫 凭证</button></td></tr>
    <tr><td>米兰</td><td>CX Milan Bicocca（Viale Suzzani 96）</td><td>2/9–12</td><td>✅ 已确认  <button class="v-btn" data-v="v-cx">🎫 凭证</button></td></tr>
-   <tr><td>—</td><td>待取消：Albergo delle Regioni ＋ Great Location Apartments</td><td>—</td><td>❌ Agoda 1774644134 / 1795558007</td></tr></table></div>
+   <tr><td>—</td><td>待取消：Albergo delle Regioni ＋ Great Location Apartments</td><td>—</td><td>❌ Agoda 1774644134 / 1795558007</td></tr></table></details>
 
-  <div class="block"><h3>🎫 票据中心</h3>
+  <details class="block"><summary>🎫 票据中心</summary>
    <table class="acc"><tr><th>项目</th><th>场次</th><th>状态</th><th>要点</th></tr>
    <tr><td>往返机票 EK ×2</td><td>1/27 深夜去 / 2/11·2/12 回</td><td>✅ 已购</td><td> <button class="v-btn" data-v="ek-out|ek-dxb-bgy">🎫 去程</button> <button class="v-btn" data-v="ek-luoxin-ret">🎫 luoxin回</button> <button class="v-btn" data-v="ek-liliyi-ret-1|ek-liliyi-ret-2">🎫 liliyi回</button></td></tr>
    <tr><td>高铁 米兰→威尼斯梅斯特</td><td>1/28 15:10</td><td>✅ 已购</td><td>终点 Mestre（定稿）</td></tr>
@@ -174,7 +179,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
    <tr><td>圣塞维罗「裹尸基督」€12</td><td>2/5 11:20</td><td>⏳ ~12/6 抢</td><td>禁拍 · 我也在盯</td></tr>
    <tr><td>斗兽场 24h 联票 ~€18</td><td>2/2 08:30</td><td>⏳ 1/3 开售</td><td>实名牌+证件</td></tr>
    <tr><td>教宗接见</td><td>2/3 09:15</td><td>⏳ 1/15 前申请</td><td>免费 · 青铜门取票</td></tr>
-   <tr><td>Capri 船票 €16–22×2</td><td>2/7 往返</td><td>⏳ 2/6 晚买</td><td>ferryhopper / Capri.net</td></tr></table></div>
+   <tr><td>Capri 船票 €16–22×2</td><td>2/7 往返</td><td>⏳ 2/6 晚买</td><td>ferryhopper / Capri.net</td></tr></table></details>
 
   <div class="block"><h3>🌤️ 当地实况</h3>
    <div id="wx" class="flight">定位中…</div></div>
