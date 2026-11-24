@@ -242,12 +242,37 @@ document.querySelectorAll('.tnav-btn').forEach(b=>b.addEventListener('click',()=
  if(target){target.classList.add('active');}
  window.scrollTo({top:0});
 }));
-const start=new Date('2027-01-28T00:15:00+08:00');
-function cd(){const n=new Date();let diff=start-n;
- if(diff<=0){document.getElementById('cd').textContent='旅程进行中 🎉';return;}
+const LEGS=[
+["2027-01-28T00:15:00+08:00","距广州出发 EK0363（luoxin 深圳 00:45 EK0329）"],
+["2027-01-28T07:30:00+04:00","距迪拜起飞 EK2140"],
+["2027-01-28T13:20:00+01:00","距贝加莫→米兰火车"],
+["2027-01-28T15:10:00+01:00","距米兰→威尼斯梅斯特高铁"],
+["2027-01-29T19:30:00+01:00","距梅斯特→佛罗伦萨高铁"],
+["2027-01-31T08:20:00+01:00","距佛罗伦萨→比萨火车"],
+["2027-01-31T14:00:00+01:00","距比萨→佛罗伦萨返程火车"],
+["2027-02-01T09:04:00+01:00","距佛罗伦萨→Orvieto火车"],
+["2027-02-01T16:00:00+01:00","距Orvieto→罗马火车"],
+["2027-02-05T08:30:00+01:00","距罗马→那不勒斯高铁"],
+["2027-02-06T08:40:00+01:00","距那不勒斯→索伦托环维苏威"],
+["2027-02-07T08:00:00+01:00","距索伦托→Capri快船"],
+["2027-02-07T16:30:00+01:00","距Capri→索伦托返程船"],
+["2027-02-08T17:00:00+01:00","距Positano→索伦托海岸巴士"],
+["2027-02-09T08:00:00+01:00","距索伦托→那不勒斯环维苏威"],
+["2027-02-09T09:40:00+01:00","距那不勒斯→米兰高铁"],
+["2027-02-11T21:20:00+01:00","距luoxin回程 EK0092（MXP）"],
+["2027-02-12T08:10:00+01:00","距米兰→科莫火车"],
+["2027-02-12T15:40:00+01:00","距科莫→米兰火车"],
+["2027-02-12T18:20:00+01:00","距米兰→贝加莫火车"],
+["2027-02-12T23:00:00+01:00","距liliyi回程 EK2415（BGY）"],
+["2027-02-13T21:45:00+08:00","落地广州白云 T3"]
+];
+function cd(){const n=new Date();const cdEl=document.getElementById('cd');
+ let cur=null;for(const L of LEGS){if(new Date(L[0])>n){cur=L;break;}}
+ if(!cur){cdEl.textContent='行程完成 ✅ 已落地广州';return;}
+ let diff=new Date(cur[0])-n;
  const dd=Math.floor(diff/864e5),hh=Math.floor(diff%864e5/36e5),mm=Math.floor(diff%36e5/6e5);
- document.getElementById('cd').textContent=`距出发还有 ${dd} 天 ${hh} 时 ${mm} 分`;}
-cd();setInterval(cd,60000);
+ cdEl.textContent=`${cur[1]}  ${dd} 天 ${hh} 时 ${mm} 分`;}
+cd();setInterval(cd,10000);
 </script>
 <script>
 if ("serviceWorker" in navigator) { navigator.serviceWorker.register("sw.js"); }
