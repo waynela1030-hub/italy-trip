@@ -54,9 +54,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 .block{background:var(--card);border-radius:14px;padding:14px 16px;margin-top:12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .block h3{font-size:15px;margin-bottom:10px;color:var(--acc)}
 .flight{font-size:13.5px;background:#F7F1EA;border-radius:9px;padding:8px 11px;margin-bottom:7px}
-.keys{list-style:none}
-.keys li{font-size:13.5px;padding:5px 0;border-bottom:1px dashed var(--line)}
-.keys li:last-child{border-bottom:0}
+.ck{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;padding:6px 0;border-bottom:1px dashed var(--line);cursor:pointer;color:#3C3A36}
+.ck:last-child{border-bottom:0}
+.ck input{width:17px;height:17px;flex:0 0 auto;margin-top:1px;accent-color:#C8102E}
+.ck input:checked+*{text-decoration:line-through;color:#A8A5A0}
+.ck-sec{font-size:12.5px;font-weight:700;color:#C8102E;margin:10px 0 2px;letter-spacing:.5px}
 .acc{width:100%;border-collapse:collapse;font-size:13px}
 .acc th{background:#2E3A48;color:#fff;padding:7px 8px;text-align:left;font-weight:600}
 .acc td{padding:7px 8px;border-bottom:1px solid var(--line)}
@@ -99,15 +101,43 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
    <tr><td>2/6–2/9</td><td>索伦托</td><td>Sunset Home</td><td>3 晚</td></tr>
    <tr><td>2/9–2/12</td><td>米兰</td><td>CX Milan Bicocca</td><td>3 晚（luoxin 2/11 离境 = 2 晚）</td></tr></table></div>
 
-  <div class="block"><h3>⏰ 关键时间轴</h3>
-   <ul class="keys">
-    <li><b>12 月上中旬</b>：《最后的晚餐》开售 → vivaticket 先注册账号，出公告即抢</li>
-    <li><b>12/6 前后</b>：圣塞维罗「裹尸基督」约 12/6 开售即订</li>
-    <li><b>1/3</b>：罗马斗兽场 2 月票开售 → ticketing.colosseo.it</li>
-    <li><b>1/15 前</b>：教宗接见申请截止（官网，免费）</li>
-    <li><b>2/6</b>：预约 2/13 广州白云 T3 接机（已设提醒）</li>
-    <li><b>出发前一周</b>：查 Monte Solaro 缆车检修 + Capri 船班 + SITA 冬季时刻</li>
-   </ul></div>
+  <div class="block"><h3>🧾 出行 checklist</h3>
+   <div class="ck-sec">⏰ 抢票 / 预约节点</div>
+   <label class="ck"><input type="checkbox" id="ck1">12 月上中旬：《最后的晚餐》开售 → vivaticket 先注册账号（护照号），出公告即抢 2/10 场次</label>
+   <label class="ck"><input type="checkbox" id="ck2">12/6 前后：圣塞维罗「裹尸基督」开售即订 2/5 11:20 场次（€12/人）</label>
+   <label class="ck"><input type="checkbox" id="ck3">1/3：罗马斗兽场 2 月票开售 → ticketing.colosseo.it（2/2 08:30 首场，实名牌）</label>
+   <label class="ck"><input type="checkbox" id="ck4">1/15 前：教宗接见申请提交（vatican 官网，免费）+ 确认邮件存档</label>
+   <label class="ck"><input type="checkbox" id="ck5">2/6：预约 2/13 广州白云 T3 接机（已设微信提醒）</label>
+   <label class="ck"><input type="checkbox" id="ck6">出发前一周：查 Monte Solaro 缆车检修 + Capri 船班 + SITA 冬季时刻</label>
+   <label class="ck"><input type="checkbox" id="ck7">出发前一周：下载意大利境内 Google Maps 离线地图（6 城）+ 翻译离线意语包</label>
+
+   <div class="ck-sec">📄 证件与文件</div>
+   <label class="ck"><input type="checkbox" id="ck8">申根签证办妥（12 月办理，留足时间）+ 护照有效期＞行程后 6 个月</label>
+   <label class="ck"><input type="checkbox" id="ck9">打印 2 套：护照/签证页、机票行程单（去+回 4 段）、全部酒店订单、保险单</label>
+   <label class="ck"><input type="checkbox" id="ck10">申根旅游保险（覆盖 1/28–2/13 全程，办签证就要）+ 电子版存手机</label>
+   <label class="ck"><input type="checkbox" id="ck11">证件照 2 张 + 护照/签证复印件与原件分开存放（备用防丢）</label>
+
+   <div class="ck-sec">📱 通讯 / 电子</div>
+   <label class="ck"><input type="checkbox" id="ck12">意大利电话卡或 eSIM（TIM/Vodafone，两人至少一张能开热点）</label>
+   <label class="ck"><input type="checkbox" id="ck13">欧标转换插头（意式 C/F 两圆孔）×2 + 排插</label>
+   <label class="ck"><input type="checkbox" id="ck14">充电宝（⚠️ 必须随身、不可托运）+ 数据线</label>
+
+   <div class="ck-sec">💶 钱</div>
+   <label class="ck"><input type="checkbox" id="ck15">换欧元现金（建议合计 €400–600 零钱；意大利小店/交通常要现金）</label>
+   <label class="ck"><input type="checkbox" id="ck16">Visa/Mastercard 信用卡（⚠️ 银联在意大利基本刷不了）+ 开境外免手续费通道</label>
+   <label class="ck"><input type="checkbox" id="ck17">退税知识过一遍：同店满 €50 可退税，离境最后一站（liliyi=BGY、luoxin=MXP）海关盖章</label>
+
+   <div class="ck-sec">🎒 装备 / 杂项</div>
+   <label class="ck"><input type="checkbox" id="ck18">常用药品（肠胃/感冒/创可贴/晕车贴）+ 口罩少量</label>
+   <label class="ck"><input type="checkbox" id="ck19">2 月冬装：防水外套、防滑徒步鞋（⚠️ 众神之路必备）、帽子手套</label>
+   <label class="ck"><input type="checkbox" id="ck20">折叠雨伞 + 保温杯 + 抽绳袋（装瓶装水/手信）</label>
+   <label class="ck"><input type="checkbox" id="ck21">行李称重器 + 备用折叠袋（回程装手信超重的保险）</label>
+
+   <div class="ck-sec">📲 手机装好这几样</div>
+   <label class="ck"><input type="checkbox" id="ck22">Google Maps（离线地图）+ Google 翻译（意语离线包）</label>
+   <label class="ck"><input type="checkbox" id="ck23">Trenit! 或 Trenitalia App（意大利火车实时晚点查询）</label>
+   <label class="ck"><input type="checkbox" id="ck24">TheFork（订位打折）/ ferryhopper（船班）/ 航司 App（EK 值机）</label>
+  </div>
 
   <div class="block"><h3>🏨 住宿</h3>
    <table class="acc"><tr><th>城市</th><th>酒店</th><th>日期</th><th>状态/单号</th></tr>
@@ -282,6 +312,17 @@ function cd(){const n=new Date();const cdEl=document.getElementById('cd');
  const dd=Math.floor(diff/864e5),hh=Math.floor(diff%864e5/36e5),mm=Math.floor(diff%36e5/6e5);
  cdEl.textContent=`${cur[1]}  ${dd} 天 ${hh} 时 ${mm} 分`;}
 cd();setInterval(cd,10000);
+/* checklist persistence */
+try {{
+  const saved = JSON.parse(localStorage.getItem("it-ck") || "{{}}");
+  document.querySelectorAll(".ck input").forEach(el => {{
+    if (saved[el.id]) el.checked = true;
+    el.addEventListener("change", () => {{
+      const s = JSON.parse(localStorage.getItem("it-ck") || "{{}}");
+      s[el.id] = el.checked; localStorage.setItem("it-ck", JSON.stringify(s));
+    }});
+  }});
+}} catch(e) {{}}
 </script>
 <script>
 if ("serviceWorker" in navigator) { navigator.serviceWorker.register("sw.js"); }
